@@ -1,10 +1,43 @@
-.header-container {
-    background-color: #678c89;
-    color: #fff;
-    padding: 10px 15px;
+* {
+    box-sizing: border-box;
+    margin: 0 0 0 0;
+    padding: 0;
     }
-.header-title {
-    font-size: 25px;
-    line-height: 1.447em;
-    margin: 0px;
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    line-height: 1.4;
+    background-color: #fcfcfc;
+    color: #1f1f1f;
+}
+.container {
+    max-width: 500px;
+    margin: 0 auto;
+    border: 1px solid #1f1f1f;
+    background-color: #bbe9e5;
+}
+.todo-item {
+    list-style-type: none;
+    padding: 10px 15px;
+    border-top: 1px solid #1f1f1f;
+    background-color: #fcfcfc;
+}
+.todo-item input {
+    margin-right: 15px;
+}
+.completed {
+    font-style: italic;
+    color: #e92828;
+    text-decoration: line-through
+}
+
+
+.btn-style {
+background: #d35e0f;
+color: #fff;
+border: 1px solid #d35e0f;
+padding: 3px 7px;
+border-radius: 50%;
+cursor: pointer;
+float: right;
+outline: none;
 }
