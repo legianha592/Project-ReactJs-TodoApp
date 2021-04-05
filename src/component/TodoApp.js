@@ -27,6 +27,11 @@ class TodoApp extends React.Component{
         return (
             <div>
                 <Header />
+                <ul>
+                    {this.state.todos.map(todo => (
+                        <li key={todo.id}>{todo.title}</li>
+                    ))}
+                </ul>
             </div>
         );
     }
