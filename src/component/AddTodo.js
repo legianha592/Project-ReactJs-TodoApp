@@ -11,9 +11,17 @@ class AddTodo extends React.Component{
         })
     }
 
+    addTodo = (e) => {
+        e.preventDefault()
+        this.props.addTodo(this.state.title)
+        this.setState({
+            title : ""
+        })
+    }
+
     render(){
         return(
-            <form className="form-container">
+            <form className="form-container" onSubmit={this.addTodo}>
                 <input type="text" 
                     placeholder="Add todo..." 
                     className="input-text"
