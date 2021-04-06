@@ -1,36 +1,66 @@
-import React from "react";
+import React, {useState} from "react";
 
-class AddTodo extends React.Component{
-    state = {
-        title : ""
-    };
+//C2: dung Functional component
+function AddTodo(props){
+    const [title, setTitle] = useState("");
 
-    onInputChange = (e) => {
-        this.setState({
-            title : e.target.value
-        })
+    const onInputChange = (e) => {
+        setTitle(e.target.value)
     }
 
-    addTodo = (e) => {
-        e.preventDefault()
-        this.props.addTodo(this.state.title)
-        this.setState({
-            title : ""
-        })
+    const addTodo = (e) => {
+        e.preventDefault();
+        props.addTodo(title);
+        setTitle("")
     }
 
-    render(){
-        return(
-            <form className="form-container" onSubmit={this.addTodo}>
-                <input type="text" 
-                    placeholder="Add todo..." 
-                    className="input-text"
-                    value={this.state.title}
-                    onChange={this.onInputChange}/>
-                <input type="submit" value="Submit" className="input-submit"/>
-            </form>
-        )
-    }
+    return(
+        <form className="form-container" onSubmit={addTodo}>
+            <input type="text"
+                placeholder="Add todo..."
+                className="input-text"
+                value={title}
+                onChange={onInputChange}/>
+            <input type="submit" value="Submit" className="input-submit"/>
+        </form>
+    )
 }
+
+
+
+//C1: dung Class component
+
+// class AddTodo extends React.Component{
+//     state = {
+//         title : ""
+//     };
+
+//     onInputChange = (e) => {
+//         this.setState({
+//             title : e.target.value
+//         })
+//     }
+
+//     addTodo = (e) => {
+//         e.preventDefault()
+//         this.props.addTodo(this.state.title)
+//         this.setState({
+//             title : ""
+//         })
+//     }
+
+//     render(){
+//         return(
+//             <form className="form-container" onSubmit={this.addTodo}>
+//                 <input type="text" 
+//                     placeholder="Add todo..." 
+//                     className="input-text"
+//                     value={this.state.title}
+//                     onChange={this.onInputChange}/>
+//                 <input type="submit" value="Submit" className="input-submit"/>
+//             </form>
+//         )
+//     }
+// }
 
 export default AddTodo;
